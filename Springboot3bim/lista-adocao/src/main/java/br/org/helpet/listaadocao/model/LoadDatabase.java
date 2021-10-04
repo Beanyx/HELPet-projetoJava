@@ -27,8 +27,8 @@ public class LoadDatabase {
             LarTemp lar1 = new LarTemp("Maurício", "123.123.123-50", "12 997895642");
             animal1.setLarTemp(lar1); //necesário adicionar para sincronizar a conexão bidirecional
             animais.add(animal1); 
-            animal1.setLarTemp(lar1); //necesário adicionar para sincronizar a conexão bidirecional
-            animais.add(animal1);
+            animal3.setLarTemp(lar1); //necesário adicionar para sincronizar a conexão bidirecional
+            animais.add(animal3);
             lar1.setAnimais(animais);
             
             LarTemp lar2 = new LarTemp("Joana", "111.222.333-44", "(11) 98877-6655");
