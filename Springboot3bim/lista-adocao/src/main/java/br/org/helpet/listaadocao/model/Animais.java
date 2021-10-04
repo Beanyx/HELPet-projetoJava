@@ -1,5 +1,6 @@
 package br.org.helpet.listaadocao.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,7 @@ public class Animais {
     private String sexo;
     private String raca;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonBackReference
     private LarTemp larTemp;
     
