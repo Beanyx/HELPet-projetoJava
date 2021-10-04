@@ -25,18 +25,18 @@ public class LoadDatabase {
             
             List<Animais> animais = new ArrayList<>();
             LarTemp lar1 = new LarTemp("Maurício", "123.123.123-50", "12 997895642");
-            animal1.setLista(lar1); //necesário adicionar para sincronizar a conexão bidirecional
+            animal1.setLarTemp(lar1); //necesário adicionar para sincronizar a conexão bidirecional
             animais.add(animal1); 
-            animal1.setLista(lar1); //necesário adicionar para sincronizar a conexão bidirecional
+            animal1.setLarTemp(lar1); //necesário adicionar para sincronizar a conexão bidirecional
             animais.add(animal1);
-            lar1.setLista(animais);
+            lar1.setAnimais(animais);
             
             LarTemp lar2 = new LarTemp("Joana", "111.222.333-44", "(11) 98877-6655");
-            animal2.setLista(lar2); //necesário adicionar para sincronizar a conexão bidirecional entre Lista e Tarefa
+            animal2.setLarTemp(lar2); //necesário adicionar para sincronizar a conexão bidirecional entre Lista e Tarefa
             animais.add(animal2); 
-            animal4.setLista(lar2); //necesário adicionar para sincronizar a conexão bidirecional
+            animal4.setLarTemp(lar2); //necesário adicionar para sincronizar a conexão bidirecional
             animais.add(animal4);
-            lar2.setTarefas(animais);
+            lar2.setAnimais(animais);
 
             log.info("Inserindo: " + repository.save(animal1));
             log.info("Inserindo: " + repository.save(animal2));
