@@ -54,5 +54,11 @@ public class LarTemp {
         this.telefone = telefone;
     }
 
+    public void setAnimais(List<Animais> animais) {
+        this.animais = animais;
+    }
+    public void addAnimais(Animais animal){
+        animais.add(animal);
+    }
     
 }
