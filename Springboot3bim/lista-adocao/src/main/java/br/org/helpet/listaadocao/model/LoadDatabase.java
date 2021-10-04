@@ -1,5 +1,8 @@
 package br.org.helpet.listaadocao.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -16,22 +19,29 @@ public class LoadDatabase {
         return args ->{
             //Inserção de dados iniciais no banco
             Animais animal1 = new Animais("cachorro", "macho", "raça não definida");
-            Animais animal2 = new Animais("gato", "fêmea", "siamês");
+            Animais animal2 = new Animais("gato", "fêmea", "Siamês");
+            Animais animal3 = new Animais("gato", "macho", "Himalaio");
+            Animais animal4 = new Animais("cachorro", "fêmea", "Golden retriever");
+            
+            List<Animais> animais = new ArrayList<>();
+            LarTemp lar1 = new LarTemp("Maurício", "123.123.123-50", "12 997895642");
+            animal1.setLista(lar1); //necesário adicionar para sincronizar a conexão bidirecional
+            animais.add(animal1); 
+            animal1.setLista(lar1); //necesário adicionar para sincronizar a conexão bidirecional
+            animais.add(animal1);
+            lar1.setLista(animais);
+            
+            LarTemp lar2 = new LarTemp("Joana", "111.222.333-44", "(11) 98877-6655");
+            animal2.setLista(lar2); //necesário adicionar para sincronizar a conexão bidirecional entre Lista e Tarefa
+            animais.add(animal2); 
+            animal4.setLista(lar2); //necesário adicionar para sincronizar a conexão bidirecional
+            animais.add(animal4);
+            lar2.setTarefas(animais);
 
             log.info("Inserindo: " + repository.save(animal1));
             log.info("Inserindo: " + repository.save(animal2));
-    };
-}
-
-    @Bean
-    CommandLineRunner initData(LarTempRepository repository) {
-        return args ->{
-            //Inserção de dados iniciais no banco
-            LarTemp larTemp1 = new LarTemp("Maurício", "123.123.123-50", "12 997895642");
-            LarTemp larTemp2 = new LarTemp("Joana", "111.222.333-44", "(11) 98877-6655");
-
-            log.info("Inserindo: " + repository.save(larTemp1));
-            log.info("Inserindo: " + repository.save(larTemp2));
+            log.info("Inserindo: " + repository.save(animal3));
+            log.info("Inserindo: " + repository.save(animal4));
     };
 }
 }
