@@ -19,19 +19,6 @@
         </b-form-group>
 
         <b-form-group
-          id="input-group-2"
-          label="Nome:"
-          label-for="nome"
-        >
-          <b-form-input
-            id="nome"
-            v-model="form.nome"
-            placeholder="Digite o nome"
-            required
-          ></b-form-input>
-        </b-form-group>
-
-        <b-form-group
           id="input-group-3"
           label="Sexo:"
           label-for="sexo"
@@ -71,7 +58,6 @@ export default {
     return {
       form: {
         tipo: '',
-        nome: '',
         sexo: '',
         raca: '',
       },
@@ -110,7 +96,6 @@ export default {
     limparCampos() {
       this.form = {
         tipo: '',
-        nome: '',
         sexo: '',
         raca: '',
       }
