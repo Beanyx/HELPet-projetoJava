@@ -20,6 +20,7 @@ import br.org.helpet.listaadocao.model.LarTemp;
 import br.org.helpet.listaadocao.model.LarTempRepository;
 
 
+@CrossOrigin(origins = "http:\\localhost:3000")
 @RestController
 public class ListaController {
     
