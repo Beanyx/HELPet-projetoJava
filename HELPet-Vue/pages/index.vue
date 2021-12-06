@@ -5,7 +5,7 @@
           <h1>Animais em lares temporários</h1>
           <b-table striped responsive hover :items = "animais" :fields="fields">
 
-            <template #cell(nome)="data">
+            <template #cell(raca)="data">
               <NuxtLink :to="`/animais/${data.value}`">
                 <span>{{data.value}}</span>
               </NuxtLink>
@@ -33,9 +33,6 @@ export default {
               fields:[
                 {
                   key: "tipoAnimal"
-                },
-                {
-                  key: "nome"
                 },
                 {
                   key: "sexo"
