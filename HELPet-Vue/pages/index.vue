@@ -21,12 +21,11 @@ export default {
     async asyncData({$axios}){
         let data;
         try{
-        const response = await $axios.$get("/animais");
-        data = response.data;
+        data = await $axios.$get("/animais");
         } catch(e){ //trata o erro se houver
         console.log(e);
         }
-        console.log(data);
+        console.log(JSON.stringify(data));
         return {data};
       },
         data: function(){
@@ -44,13 +43,13 @@ export default {
                 {
                   key: "raca"
                 },
-              ],
-              animais:[
-                {tipoAnimal:"cão", nome:"Totó", sexo: "macho", raca:"raça não definida"},
-                {tipoAnimal:"gato", nome:"Lili", sexo: "fêmea", raca:"Siamês"},
-                {tipoAnimal:"gato", nome:"Arnold", sexo: "macho", raca:"Himalaio"},
-                {tipoAnimal:"cão", nome:"Bela", sexo: "fêmea", raca:"Golden retriever"}
               ]
+              //animais:[
+                //{tipoAnimal:"cão", nome:"Totó", sexo: "macho", raca:"raça não definida"},
+                //{tipoAnimal:"gato", nome:"Lili", sexo: "fêmea", raca:"Siamês"},
+                //{tipoAnimal:"gato", nome:"Arnold", sexo: "macho", raca:"Himalaio"},
+                //{tipoAnimal:"cão", nome:"Bela", sexo: "fêmea", raca:"Golden retriever"}
+              //]
             }
         }
     }
