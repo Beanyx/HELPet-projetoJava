@@ -18,6 +18,17 @@
 
 <script>
 export default {
+    async asyncData({$axios}){
+        let data;
+        try{
+        const response = await $axios.$get("/animais");
+        data = response.data;
+        } catch(e){ //trata o erro se houver
+        console.log(e);
+        }
+        console.log(data);
+        return {data};
+      },
         data: function(){
             return {
               fields:[
