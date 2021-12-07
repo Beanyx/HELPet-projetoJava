@@ -75,11 +75,14 @@ export default {
   },
   
   methods: {
-    criarAnimal() {
-      //event.preventDefault();
+    async criarAnimal(event) {
+      event.preventDefault()
       //implementar o envio do novo animal
-      console.log(this.form)
-      this.$bvModal.msgBoxOk('Novo animal cadastrado com sucesso', {
+      try {
+        let dataLista = await this.$axios.$post("/animais/criar", this.form)
+        console.log(dataLista);
+        if(dataLista !== null) {
+          this.$bvModal.msgBoxOk('Novo animal cadastrado com sucesso', {
           title: 'Confirmation',
           size: 'sm',
           buttonSize: 'sm',
@@ -87,11 +90,12 @@ export default {
           headerClass: 'p-2 border-bottom-0',
           footerClass: 'p-2 border-top-0',
           centered: true
-      }).then(
-        ()=>{
-          this.limparCampos()
+      })
+      this.limparCampos()
         }
-      )
+      } catch (error) {
+        console.log(error);
+      }
     },
     limparCampos() {
       this.form = {
